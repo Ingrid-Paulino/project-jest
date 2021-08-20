@@ -22,10 +22,7 @@ describe('3 - Verifica as funções e os mocks', () => {
   mockFunctions.subtract.mockImplementation((a, b) => a - b);
   mockFunctions.multiply.mockImplementation((a, b) => a * b);
   mockFunctions.divide.mockImplementation((a, b) => a / b);
-  mockFunctions.power.mockImplementation((a, b) => {
-    const pow = a ** b;
-    return pow;
-  });
+  mockFunctions.power.mockImplementation((a, b) => a ** b);
 
   mockFunctions.factorial.mockImplementation((a) => {
     let fact = a;
