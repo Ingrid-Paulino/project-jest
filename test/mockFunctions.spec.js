@@ -1,5 +1,6 @@
 const mockFunctions = require('../src/mockFunctions');
 
+jest.mock('../src/mockFunctions');
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
@@ -16,51 +17,22 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('3 - Verifica as funções e os mocks', () => {
   // Crie suas mock functions aqui
-  test('#add', () => {
-    mockFunctions.add = jest.fn().mockReturnValue(3);
-    mockFunctions.add = jest.fn().mockReturnValue(45);
-    mockFunctions.add = jest.fn().mockReturnValue(14);
-    mockFunctions.add = jest.fn().mockReturnValue(-175);
+
+  mockFunctions.add.mockImplementation((a, b) => a + b);
+  mockFunctions.subtract.mockImplementation((a, b) => a - b);
+  mockFunctions.multiply.mockImplementation((a, b) => a * b);
+  mockFunctions.divide.mockImplementation((a, b) => a / b);
+  mockFunctions.power.mockImplementation((a, b) => {
+    const pow = a ** b;
+    return pow;
   });
 
-  test('#subtract', () => {
-    mockFunctions.subtract = jest.fn().mockReturnValue(864);
-    mockFunctions.subtract = jest.fn().mockReturnValue(-350);
-    mockFunctions.subtract = jest.fn().mockReturnValue(-52);
-    mockFunctions.subtract = jest.fn().mockReturnValue(-131);
-    mockFunctions.subtract = jest.fn().mockReturnValue(-104);
-  });
-
-  test('#multiply', () => {
-    mockFunctions.multiply = jest.fn().mockReturnValue(2);
-    mockFunctions.multiply = jest.fn().mockReturnValue(0);
-    mockFunctions.multiply = jest.fn().mockReturnValue(-36);
-    mockFunctions.multiply = jest.fn().mockReturnValue(84);
-    mockFunctions.multiply = jest.fn().mockReturnValue(437);
-  });
-
-  test('#divide', () => {
-    mockFunctions.divide = jest.fn().mockReturnValue(13);
-    mockFunctions.divide = jest.fn().mockReturnValue(-380);
-    mockFunctions.divide = jest.fn().mockReturnValue(6);
-    mockFunctions.divide = jest.fn().mockReturnValue(3);
-    mockFunctions.divide = jest.fn().mockReturnValue(121);
-  });
-
-  test('#power', () => {
-    mockFunctions.power = jest.fn().mockReturnValue(100);
-    mockFunctions.power = jest.fn().mockReturnValue(1024);
-    mockFunctions.power = jest.fn().mockReturnValue(3125);
-    mockFunctions.power = jest.fn().mockReturnValue(1);
-    mockFunctions.power = jest.fn().mockReturnValue(1);
-  });
-
-  test('#factorial', () => {
-    mockFunctions.factorial = jest.fn().mockReturnValue(120);
-    mockFunctions.factorial = jest.fn().mockReturnValue(3628800);
-    mockFunctions.factorial = jest.fn().mockReturnValue(6);
-    mockFunctions.factorial = jest.fn().mockReturnValue(40320);
-    mockFunctions.factorial = jest.fn().mockReturnValue(2);
+  mockFunctions.factorial.mockImplementation((a) => {
+    let fact = a;
+    for (let i = 1; i < a; i += 1) {
+      fact *= i;
+    }
+    return fact;
   });
 
   test('testa função add', () => {
