@@ -1,4 +1,5 @@
 // ATENÇÃO!!! Não edite este arquivo. Altere apenas os arquivos da pasta 'test'.
+// codigo da trybe
 const specialists = [
   { nome: 'Tunico', classe: 'Mestre dos Magos' },
   { nome: 'Cremoso', classe: 'Cavaleiro Negro' },

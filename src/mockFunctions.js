@@ -1,4 +1,5 @@
 // ATENÇÃO!!! Não edite este arquivo. Altere apenas os arquivos da pasta 'test'.
+// codigo da trybe
 const multiply = (a, b) => a / b;
 
 const power = (a, b) => {
